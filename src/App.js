@@ -1,25 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+import { Provider as ReactReduxProvider } from "react-redux";
+import CssBaseline from '@material-ui/core/CssBaseline';
+
+import GlobalRouter from './GlobalRouter';
+import store from '../src/services/Redux/Store';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <CssBaseline />
+      <ReactReduxProvider store={store}>
+        <GlobalRouter />
+      </ReactReduxProvider>
+    </Fragment >
   );
 }
 
